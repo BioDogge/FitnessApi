@@ -9,6 +9,7 @@ namespace FitnessApi.Models
 	public class Gender
 	{
 		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		[Column(TypeName = "char(1)")]
 		public char Name { get; set; }
 
