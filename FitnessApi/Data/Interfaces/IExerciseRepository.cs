@@ -6,7 +6,7 @@ namespace FitnessApi.Data.Interfaces
 	{
 		IEnumerable<Exercise> GetAllExercises(int userId);
 		Exercise GetExercise(int exerciseId, int userId);
-		void CreateExercise(Exercise exercise);
+		void CreateExercise(Exercise exercise, int userId);
 		void DeleteExercise(Exercise exercise);
 
 		bool SaveChanges();

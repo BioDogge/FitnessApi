@@ -6,7 +6,7 @@ namespace FitnessApi.Data.Interfaces
 	{
 		IEnumerable<Eating> GetAllEatings(int userId);
 		Eating GetEating(int eatingId, int userId);
-		void CreateEating(Eating eating, Dictionary<int, decimal> foodAndPortionSize);
+		void CreateEating(Eating eating, Dictionary<int, decimal> foodAndPortionSize, int userId);
 		void DeleteEating(Eating eating);
 
 		bool IsExistingFood(int foodId);

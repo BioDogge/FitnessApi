@@ -13,10 +13,12 @@ namespace FitnessApi.Data.Repositories
             _context = context;
         }
 
-        public void CreateEating(Eating eating, Dictionary<int, decimal> foodAndPortionSize)
+        public void CreateEating(Eating eating, Dictionary<int, decimal> foodAndPortionSize, int userId)
 		{
 			if (eating != null && foodAndPortionSize.Count() > 0)
 			{
+				eating.UserId = userId;
+
 				foreach (var item in foodAndPortionSize)
 				{
 					if (IsExistingFood(item.Key))

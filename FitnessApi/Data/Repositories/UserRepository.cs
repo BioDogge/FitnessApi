@@ -44,9 +44,10 @@ namespace FitnessApi.Data.Repositories
 			return _context.SaveChanges() >= 0;
 		}
 
+		
 		public void UpdateUser(User user)
 		{
-			//TODO: Update will be implemented through AutoMapper
+			//This method is empty because updating the users profile implemented throught AutoMapper. Magic!
 		}
 	}
 }

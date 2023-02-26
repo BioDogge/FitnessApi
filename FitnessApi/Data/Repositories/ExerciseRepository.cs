@@ -13,20 +13,21 @@ namespace FitnessApi.Data.Repositories
 			_context = context;
 		}
 
-		public void CreateExercise(Exercise exercise)
+		public void CreateExercise(Exercise exercise, int userId)
 		{
-			if (exercise != null)
-				_context.Exercises.Add(exercise);
-			else
+			if (exercise == null)
 				throw new ArgumentNullException(nameof(exercise));
+
+			exercise.UserId = userId;
+			_context.Exercises.Add(exercise);
 		}
 
 		public void DeleteExercise(Exercise exercise)
 		{
-			if (exercise != null)
-				_context.Exercises.Remove(exercise);
-			else
+			if (exercise == null)
 				throw new ArgumentNullException(nameof(exercise));
+
+			_context.Exercises.Remove(exercise);
 		}
 
 		public IEnumerable<Exercise> GetAllExercises(int userId)
