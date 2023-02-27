@@ -16,8 +16,15 @@ namespace FitnessApi.Dtos.EatingsDto
 
 		public TimeSpan MealTime { get; set; }
 
-		public decimal PortionSize { get; set; }
+		public ICollection<FoodEatingReadDto>? FoodsAndPortion { get; set; }
+	}
 
-		public ICollection<FoodWithVitaminsReadDto>? Foods { get; set; }
+	public class FoodEatingReadDto
+	{
+		public int EatingId { get; set; }
+
+		public int FoodId { get; set; }
+
+		public decimal PortionSize { get; set; }
 	}
 }

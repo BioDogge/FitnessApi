@@ -7,6 +7,7 @@ using FitnessApi.Dtos.GendersDto;
 using FitnessApi.Dtos.UsersDto;
 using FitnessApi.Dtos.VitaminsDto;
 using FitnessApi.Models;
+using System.Runtime.CompilerServices;
 
 namespace FitnessApi.Profiles
 {
@@ -36,8 +37,11 @@ namespace FitnessApi.Profiles
             CreateMap<Food, FoodWithVitaminsReadDto>();
 			#endregion
 
+			CreateMap<FoodEating, FoodEatingReadDto>();
+
+			//HACK: May be this mapping will change
 			CreateMap<Eating, EatingReadDto>()
-				.ForMember(dest => dest.PortionSize, opts => opts.MapFrom(src => src.FoodEatings.Single().PortionSize));
+				.ForMember(dest => dest.FoodsAndPortion, opts => opts.MapFrom(y => y.FoodEatings.Where(f => f.EatingId == y.Id)));
 
 			CreateMap<Vitamin, VitaminReadDto>();
 		}
