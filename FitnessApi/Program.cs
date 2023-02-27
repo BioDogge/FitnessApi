@@ -12,6 +12,7 @@ namespace FitnessApi
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+			//UNDONE: This DbContext for the development environment.
 			builder.Services.AddDbContext<FitnessDbContext>();
 
 			builder.Services.AddControllers()

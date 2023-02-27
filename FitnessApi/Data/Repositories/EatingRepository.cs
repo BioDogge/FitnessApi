@@ -46,13 +46,13 @@ namespace FitnessApi.Data.Repositories
 
 		public IEnumerable<Eating> GetAllEatings(int userId)
 		{
-			return _context.Eatings.Include(e => e.Foods)
+			return _context.Eatings.Include(e => e.Foods).ThenInclude(f => f.Vitamin)
 				.Where(e => e.UserId == userId).ToList();
 		}
 
 		public Eating GetEating(int eatingId, int userId)
 		{
-			return _context.Eatings.Include(e => e.Foods)
+			return _context.Eatings.Include(e => e.Foods).ThenInclude(f => f.Vitamin)
 				.Where(e => e.UserId == userId).FirstOrDefault(e => e.Id == eatingId);
 		}
 

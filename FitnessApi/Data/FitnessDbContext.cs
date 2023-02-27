@@ -30,12 +30,6 @@ namespace FitnessApi.Data
 					u.HasKey(k => new { k.FoodId, k.EatingId });
 					u.ToTable(nameof(FoodEating));
 				});
-
-			//modelBuilder
-			//	.Entity<Gender>()
-			//	.HasNoKey()
-			//	.HasIndex(g => g.Name)
-			//	.IsUnique();
 		}
 
 		public DbSet<Exercise> Exercises => Set<Exercise>();

@@ -3,6 +3,7 @@ using System;
 using FitnessApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitnessApi.Migrations
 {
     [DbContext(typeof(FitnessDbContext))]
-    partial class FitnessDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230227183946_FixedTime")]
+    partial class FixedTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.14");

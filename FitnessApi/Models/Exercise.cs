@@ -24,12 +24,12 @@ namespace FitnessApi.Models
 		[Required]
 		[DataType(DataType.Time)]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-		public DateTime StartTime { get; set; }
+		public TimeSpan StartTime { get; set; }
 
 		[Required]
 		[DataType(DataType.Time)]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-		public DateTime FinishTime { get; set; }
+		public TimeSpan FinishTime { get; set; }
 
 		/// <summary>
 		/// Number of calories burned per exercise.

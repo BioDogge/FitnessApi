@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace FitnessApi.Dtos.UsersDto
+﻿namespace FitnessApi.Dtos.UsersDto
 {
 	public class UserShortInfoReadDto
 	{

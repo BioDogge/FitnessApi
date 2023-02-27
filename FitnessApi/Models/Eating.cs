@@ -21,7 +21,7 @@ namespace FitnessApi.Models
 		[Required]
 		[DataType(DataType.Time)]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-		public DateTime MealTime { get; set; }
+		public TimeSpan MealTime { get; set; }
 
 		public ICollection<FoodEating>? FoodEatings { get; set; }
 		public ICollection<Food>? Foods { get; set; }
