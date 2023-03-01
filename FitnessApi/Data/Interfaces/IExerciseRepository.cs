@@ -5,7 +5,7 @@ namespace FitnessApi.Data.Interfaces
 	public interface IExerciseRepository
 	{
 		IEnumerable<Exercise> GetAllExercises(int userId);
-		Exercise GetExercise(int exerciseId, int userId);
+		Exercise GetExerciseById(int exerciseId, int userId);
 		void CreateExercise(Exercise exercise, int userId);
 		void DeleteExercise(Exercise exercise);
 

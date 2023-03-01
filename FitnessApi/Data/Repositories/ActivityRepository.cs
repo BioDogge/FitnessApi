@@ -12,7 +12,7 @@ namespace FitnessApi.Data.Repositories
 			_context = context;   
         }
 
-        public Activity GetActivity(int id)
+        public Activity GetActivityById(int id)
 		{
 			return _context.Activities.FirstOrDefault(a => a.Id == id);
 		}

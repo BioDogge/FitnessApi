@@ -44,7 +44,7 @@ namespace FitnessApi.Controllers
 		[HttpDelete("{id}")]
 		public ActionResult DeleteEating(int id, int userId)
 		{
-			var eating = _repository.GetEating(id, userId);
+			var eating = _repository.GetEatingById(id, userId);
 
 			if (eating == null)
 				return BadRequest();

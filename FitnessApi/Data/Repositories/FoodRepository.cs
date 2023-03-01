@@ -13,22 +13,12 @@ namespace FitnessApi.Data.Repositories
             _context = context;
         }
 
-        public IEnumerable<Food> GetAllFoodsWithoutVitamins()
+        public IEnumerable<Food> GetAllFoods()
 		{
 			return _context.Foods.ToList();
 		}
 
-		public IEnumerable<Food> GetAllFoodsWithVitamins()
-		{
-			return _context.Foods.Include(f => f.Vitamin).ToList();
-		}
-
-		public Food GetFoodWithoutVitamins(int id)
-		{
-			return _context.Foods.FirstOrDefault(f => f.Id == id);
-		}
-
-		public Food GetFoodWithVitamins(int id)
+		public Food GetFoodByIdWithVitamins(int id)
 		{
 			return _context.Foods.Include(f => f.Vitamin).FirstOrDefault(f => f.Id == id);
 		}

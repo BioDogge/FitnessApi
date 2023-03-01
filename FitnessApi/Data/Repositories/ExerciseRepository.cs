@@ -36,7 +36,7 @@ namespace FitnessApi.Data.Repositories
 				.Where(e => e.UserId == userId).ToList();
 		}
 
-		public Exercise GetExercise(int exerciseId, int userId)
+		public Exercise GetExerciseById(int exerciseId, int userId)
 		{
 			return _context.Exercises.Include(e => e.Activity)
 				.Where(e => e.UserId == userId).FirstOrDefault(e => e.Id == exerciseId);

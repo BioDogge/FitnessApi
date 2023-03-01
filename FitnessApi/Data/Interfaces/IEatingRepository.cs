@@ -5,7 +5,7 @@ namespace FitnessApi.Data.Interfaces
 	public interface IEatingRepository
 	{
 		IEnumerable<Eating> GetAllEatings(int userId);
-		Eating GetEating(int eatingId, int userId);
+		Eating GetEatingById(int eatingId, int userId);
 		void CreateEating(Eating eating, IEnumerable<FoodEating> foodsAndPortion, int userId);
 		void DeleteEating(Eating eating);
 
