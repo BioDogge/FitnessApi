@@ -13,18 +13,21 @@ namespace FitnessApi.Data.Repositories
             _context = context;
         }
 
-        public void CreateEating(Eating eating, Dictionary<int, decimal> foodAndPortionSize, int userId)
+        public void CreateEating(Eating eating, IEnumerable<FoodEating> foodsAndPortion, int userId)
 		{
-			if (eating != null && foodAndPortionSize.Count() > 0)
+			if (eating != null && foodsAndPortion != null)
 			{
 				eating.UserId = userId;
 
-				foreach (var item in foodAndPortionSize)
+				//HACK: 
+
+				foreach (var food in foodsAndPortion)
 				{
-					if (IsExistingFood(item.Key))
+					if (IsExistingFood(food.FoodId))
 					{
-						eating.FoodEatings.Add(new FoodEating { FoodId = item.Key, PortionSize = item.Value });
+						food.Eating = eating;
 						_context.Eatings.Add(eating);
+						_context.FoodEatings.Add(food);
 					}
 				}
 			}

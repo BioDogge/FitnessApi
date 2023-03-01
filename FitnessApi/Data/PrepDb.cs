@@ -18,7 +18,9 @@ namespace FitnessApi.Data
 
 		private static void SeedData(FitnessDbContext context)
 		{
-			context.Database.EnsureDeleted();
+			//HACK: Recreation the database
+
+			//context.Database.EnsureDeleted();
 
 			try
 			{

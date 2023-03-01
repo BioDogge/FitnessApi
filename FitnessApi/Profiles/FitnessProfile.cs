@@ -37,11 +37,17 @@ namespace FitnessApi.Profiles
             CreateMap<Food, FoodWithVitaminsReadDto>();
 			#endregion
 
+			#region Mapping the eatings dto objects
 			CreateMap<FoodEating, FoodEatingReadDto>();
+			CreateMap<FoodEatingCreateDto, FoodEating>()
+				.ForMember(dest => dest.EatingId, opts => opts.Ignore());
 
 			//HACK: May be this mapping will change
 			CreateMap<Eating, EatingReadDto>()
 				.ForMember(dest => dest.FoodsAndPortion, opts => opts.MapFrom(y => y.FoodEatings.Where(f => f.EatingId == y.Id)));
+			CreateMap<EatingCreateDto, Eating>()
+				.ForSourceMember(src => src.FoodsAndPortion, opts => opts.DoNotValidate());
+			#endregion
 
 			CreateMap<Vitamin, VitaminReadDto>();
 		}
