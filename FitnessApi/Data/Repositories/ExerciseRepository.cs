@@ -1,4 +1,5 @@
 ﻿using FitnessApi.Data.Interfaces;
+using FitnessApi.Infrastructure;
 using FitnessApi.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,11 +14,19 @@ namespace FitnessApi.Data.Repositories
 			_context = context;
 		}
 
+		private decimal GetCaloriesPerMinuteFromActivity(int activityId)
+		{
+			return _context.Activities.FirstOrDefault(a => a.Id == activityId).CaloriesPerMinute;
+		}
+
 		public void CreateExercise(Exercise exercise, int userId)
 		{
 			if (exercise == null)
 				throw new ArgumentNullException(nameof(exercise));
 
+			var caloriesPerMinute = GetCaloriesPerMinuteFromActivity(exercise.ActivityId);
+			exercise.BurnedCalories = new CalculateCaloriesForExercise(exercise.StartTime, exercise.FinishTime, caloriesPerMinute).GetBurnedCalories();
+			
 			exercise.UserId = userId;
 			_context.Exercises.Add(exercise);
 		}
