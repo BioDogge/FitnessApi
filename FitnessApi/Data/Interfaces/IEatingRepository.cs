@@ -9,9 +9,6 @@ namespace FitnessApi.Data.Interfaces
 		void CreateEating(Eating eating, IEnumerable<FoodEating> foodsAndPortion, int userId);
 		void DeleteEating(Eating eating);
 
-		bool IsExistingFood(int foodId);
-		IEnumerable<Food> ExistingFood(IEnumerable<int> foodId);
-
 		bool SaveChanges();
 	}
 }

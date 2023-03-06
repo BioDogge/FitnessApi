@@ -17,8 +17,6 @@ namespace FitnessApi.Controllers
 		{
 			_repository = repository;
 			_mapper = mapper;
-
-			//TODO: Need to implement the output of detailed the user information by his id.
 		}
 
 		[HttpGet]
@@ -27,6 +25,17 @@ namespace FitnessApi.Controllers
 			var users = _repository.GetAllUsers();
 
 			return Ok(_mapper.Map<IEnumerable<UserShortInfoReadDto>>(users));
+		}
+
+		[HttpGet("{id}")]
+		public ActionResult<UserFullInfoReadDto> GetFullUsersInfoById(int id)
+		{
+			var user = _repository.GetUserById(id);
+
+			if (user == null)
+				return BadRequest();
+
+			return Ok(_mapper.Map<UserFullInfoReadDto>(user));
 		}
 
 		[Route("createUser")]

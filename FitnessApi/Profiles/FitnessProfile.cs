@@ -43,7 +43,6 @@ namespace FitnessApi.Profiles
 			CreateMap<FoodEatingCreateDto, FoodEating>()
 				.ForMember(dest => dest.EatingId, opts => opts.Ignore());
 
-			//HACK: May be this mapping will change
 			CreateMap<Eating, EatingReadDto>()
 				.ForMember(dest => dest.FoodsAndPortion, opts => opts.MapFrom(y => y.FoodEatings.Where(f => f.EatingId == y.Id)));
 			CreateMap<EatingCreateDto, Eating>()

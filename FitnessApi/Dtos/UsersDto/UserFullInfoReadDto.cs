@@ -17,8 +17,6 @@ namespace FitnessApi.Dtos.UsersDto
 
 		public char GenderName { get; set; }
 
-		//HACK: Change to DTO objects.
-
 		public ICollection<ExerciseReadDto>? Exercises { get; set; }
 		public ICollection<EatingReadDto>? Eatings { get; set; }
 	}

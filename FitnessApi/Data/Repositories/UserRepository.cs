@@ -36,7 +36,11 @@ namespace FitnessApi.Data.Repositories
 
 		public User GetUserById(int id)
 		{
-			return _context.Users.Include(u => u.Gender).FirstOrDefault(u => u.Id == id);
+			return _context.Users.Include(u => u.Gender)
+				.Include(u => u.Exercises)
+				.Include(u => u.Eatings)
+				.ThenInclude(e => e.FoodEatings)
+				.FirstOrDefault(u => u.Id == id);
 		}
 
 		public bool SaveChanges()

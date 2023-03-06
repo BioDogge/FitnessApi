@@ -16,6 +16,10 @@ namespace FitnessApi.Data
 			}
 		}
 
+		/// <summary>
+		/// Test Data.
+		/// </summary>
+		/// <param name="context"></param>
 		private static void SeedData(FitnessDbContext context)
 		{
 			//HACK: Recreation the database

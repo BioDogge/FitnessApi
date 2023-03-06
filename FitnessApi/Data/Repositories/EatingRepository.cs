@@ -19,8 +19,6 @@ namespace FitnessApi.Data.Repositories
 			{
 				eating.UserId = userId;
 
-				//HACK: 
-
 				foreach (var food in foodsAndPortion)
 				{
 					if (IsExistingFood(food.FoodId))
@@ -41,25 +39,23 @@ namespace FitnessApi.Data.Repositories
 				_context.Eatings.Remove(eating);
 		}
 
-		public IEnumerable<Food> ExistingFood(IEnumerable<int> foodId)
-		{
-			//HACK: Maybe this method needs to be removed.
-			throw new NotImplementedException();
-		}
-
 		public IEnumerable<Eating> GetAllEatings(int userId)
 		{
-			return _context.Eatings.Include(e => e.Foods).ThenInclude(f => f.Vitamin)
-				.Where(e => e.UserId == userId).ToList();
+			return _context.Eatings.Include(e => e.Foods)
+				.ThenInclude(f => f.Vitamin)
+				.Where(e => e.UserId == userId)
+				.ToList();
 		}
 
 		public Eating GetEatingById(int eatingId, int userId)
 		{
-			return _context.Eatings.Include(e => e.Foods).ThenInclude(f => f.Vitamin)
-				.Where(e => e.UserId == userId).FirstOrDefault(e => e.Id == eatingId);
+			return _context.Eatings.Include(e => e.Foods)
+				.ThenInclude(f => f.Vitamin)
+				.Where(e => e.UserId == userId)
+				.FirstOrDefault(e => e.Id == eatingId);
 		}
 
-		public bool IsExistingFood(int foodId)
+		private bool IsExistingFood(int foodId)
 		{
 			return _context.Foods.Any(f => f.Id == foodId);
 		}
