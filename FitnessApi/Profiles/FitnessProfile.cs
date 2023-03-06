@@ -25,7 +25,8 @@ namespace FitnessApi.Profiles
 
 			CreateMap<Gender, GenderReadDto>();
 
-            CreateMap<Activity, ActivityReadDto>();
+            CreateMap<Activity, ActivityReadDto>()
+				.ForSourceMember(src => src.Exercises, opts => opts.DoNotValidate());
 
 			#region Mapping the exercises dto objects
 			CreateMap<Exercise, ExerciseReadDto>();

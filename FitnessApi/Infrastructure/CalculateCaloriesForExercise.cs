@@ -2,6 +2,8 @@
 {
 	public class CalculateCaloriesForExercise
 	{
+		//HACK: Perhaps this class need to be changed to Static.
+
 		private readonly TimeSpan _startTime;
 		private readonly TimeSpan _finishTime;
 		private readonly decimal _exerciseTime;

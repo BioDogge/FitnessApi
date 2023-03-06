@@ -1,4 +1,5 @@
-﻿using FitnessApi.Models;
+﻿using FitnessApi.Dtos.EatingsDto;
+using FitnessApi.Dtos.ExercisesDto;
 
 namespace FitnessApi.Dtos.UsersDto
 {
@@ -18,7 +19,7 @@ namespace FitnessApi.Dtos.UsersDto
 
 		//HACK: Change to DTO objects.
 
-		public ICollection<Exercise>? Exercises { get; set; }
-		public ICollection<Eating>? Eatings { get; set; }
+		public ICollection<ExerciseReadDto>? Exercises { get; set; }
+		public ICollection<EatingReadDto>? Eatings { get; set; }
 	}
 }
