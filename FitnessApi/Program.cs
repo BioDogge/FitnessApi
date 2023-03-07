@@ -31,12 +31,24 @@ namespace FitnessApi
 
 			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 			builder.Services.AddAuthorization();
+			builder.Services.AddSwaggerGen();
 
 			var app = builder.Build();
+
+			if (app.Environment.IsDevelopment())
+			{
+				app.UseSwagger();
+				app.UseSwaggerUI();
+			}
 
 			app.UseRouting();
 			app.UseAuthorization();
 			app.UseEndpoints(endpoints => endpoints.MapControllers());
+			app.UseSwaggerUI(opts =>
+			{
+				opts.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+				opts.RoutePrefix = string.Empty;
+			});
 
 			PrepDb.PrepDatabase(app);
 
